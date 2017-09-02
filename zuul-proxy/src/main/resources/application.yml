@@ -1,0 +1,12 @@
+spring.application.name: zuul-proxy
+server.port: 9090
+management.security.enabled: false
+
+zuul:
+  routes:
+    google:
+      path: /google/**
+      url: http://google.com/ 
+    eureka-discoverable-service:
+      path: /eureka-discoverable-service-manual/**      
+      

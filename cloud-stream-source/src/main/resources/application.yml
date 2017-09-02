@@ -1,0 +1,4 @@
+spring.application.name: my-stream-app-source
+server.port: 9091
+
+spring.cloud.stream.bindings.output.destination: mytestqueue
