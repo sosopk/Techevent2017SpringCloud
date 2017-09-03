@@ -1,5 +1,5 @@
 spring.application.name: my-stream-app-sink
-server.port: 9092
+server.port: 8087
 
 spring.cloud.stream.bindings.input.destination: mytestqueue
 spring.cloud.stream.bindings.input.group: my-stream-app-group
