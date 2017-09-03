@@ -1,2 +1,2 @@
 spring.application.name: my-cloud-task-app
-server.port: 9093
+server.port: 8088
