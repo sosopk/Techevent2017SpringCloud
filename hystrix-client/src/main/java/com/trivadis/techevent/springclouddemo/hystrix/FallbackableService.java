@@ -17,7 +17,9 @@ public class FallbackableService {
 			commandProperties = {
 					@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000") })
 	public String getFallbackableGreeting() {
-		return greetingClient.greeting();
+		return "Output from DiscoverableService:<br>"
+				+ "---------------------------------------------<br><br>" 
+	            + greetingClient.greeting();
 	}
 
 	public String defaultGreeting() {
