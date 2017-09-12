@@ -7,22 +7,22 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 
 @Service
-public class FallbackableService {
+public class SomeInternalComponent {
 
 	@Autowired
-	private GreetingClient greetingClient;
+	private MyDiscoverableService discoverableService;
 
 	
-	@HystrixCommand(fallbackMethod = "defaultGreeting", 
+	@HystrixCommand(fallbackMethod = "fallbackGreeting", 
 			commandProperties = {
 					@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000") })
-	public String getFallbackableGreeting() {
+	public String getRealGreeting() {
 		return "Output from DiscoverableService:<br>"
 				+ "---------------------------------------------<br><br>" 
-	            + greetingClient.greeting();
+	            + discoverableService.greeting();
 	}
 
-	public String defaultGreeting() {
-		return "Hello, this is default greeting from Hystrix";
+	public String fallbackGreeting() {
+		return "Hystrix fallback greeting";
 	}
 }

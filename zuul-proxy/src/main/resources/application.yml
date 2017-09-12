@@ -7,6 +7,6 @@ zuul:
     google:
       path: /google/**
       url: http://google.com/ 
-    eureka-discoverable-service:
-      path: /eureka-discoverable-service-manual/**      
+    my-discoverable-service:
+      path: /my-discoverable-service-manual/**      
       

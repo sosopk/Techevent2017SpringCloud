@@ -20,11 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class HystrixClient {
 
 	@Autowired
-	private FallbackableService fallbackableService;
+	private SomeInternalComponent someInternalComponent;
 	
 	@RequestMapping("/get-greeting")
 	public String greeting() {
-		return fallbackableService.getFallbackableGreeting();
+		return someInternalComponent.getRealGreeting();
 	}
 	
 	@RequestMapping("/get-greeting-30")
@@ -32,7 +32,7 @@ public class HystrixClient {
 		ExecutorService executor = Executors.newSingleThreadExecutor();
 		for (int i=0;i<30;i++) {
 			executor.submit(() -> {
-				fallbackableService.getFallbackableGreeting();
+				someInternalComponent.getRealGreeting();
 			});
 			
 			

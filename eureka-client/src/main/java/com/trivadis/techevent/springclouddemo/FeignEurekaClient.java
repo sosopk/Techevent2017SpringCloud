@@ -19,11 +19,11 @@ import com.netflix.discovery.EurekaClient;
 @RestController
 public class FeignEurekaClient {
 	@Autowired
-	private GreetingClient greetingClient;
+	private MyDiscoverableService myDiscoverableService;
 
 	@RequestMapping("/get-greeting")
 	public String greeting() {
-		return greetingClient.greeting();
+		return myDiscoverableService.greeting();
 	}
 
 	public static void main(String[] args) {
@@ -44,14 +44,14 @@ public class FeignEurekaClient {
 	public String greeting2(Model model) {
 
 		// 1.
-		// List<ServiceInstance> serverInstances = discoveryClient.getInstances("eureka-discoverable-service");
+		// List<ServiceInstance> serverInstances = discoveryClient.getInstances("my-discoverable-service");
 		// return serverInstances.toString();
 		//
 		// 2.
-		InstanceInfo instance = eurekaClient.getNextServerFromEureka("eureka-discoverable-service", false);
+		InstanceInfo instance = eurekaClient.getNextServerFromEureka("my-discoverable-service", false);
 		return "" + instance.getPort();
 		//
 		// 3.
-		// return ""+eurekaClient.getInstancesById("eureka-discoverable-service").size();
+		// return ""+eurekaClient.getInstancesById("my-discoverable-service").size();
 	}
 }

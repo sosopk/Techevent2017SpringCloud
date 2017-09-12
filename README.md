@@ -12,7 +12,7 @@ Source code for Techevent 2017 session: Cloud Apps / Microservices made easy wit
 
 ## Service Discovery
 
-<b>Projects to start:</b> eureka-server, eureka-client, eureka-discoverable-service x 2 (with different ports e.g. --server.port=18082 and --server.port=28082)
+<b>Projects to start:</b> eureka-server, eureka-client, my-discoverable-service x 2 (with different ports e.g. --server.port=18082 and --server.port=28082)
 
 <b>URLs to Test:</b>
 * http://localhost:8761/ - Eureka dashboard
@@ -21,7 +21,7 @@ Source code for Techevent 2017 session: Cloud Apps / Microservices made easy wit
 
 ## Circuit Breaker - Hystrix
 
-<b>Projects to start:</b> eureka-server, eureka-discoverable-service, hystrix-client, hystrix-dashboard
+<b>Projects to start:</b> eureka-server, my-discoverable-service, hystrix-client, hystrix-dashboard
 
 <b>URLs to Test:</b>
 * http://localhost:8083/get-greeting - Calls fallbackable service
@@ -31,11 +31,11 @@ Source code for Techevent 2017 session: Cloud Apps / Microservices made easy wit
 
 ## Zuul - Api Gateway
 
-<b>Projects to start:</b> eureka-discoverable-service, eureka-server, zuul-proxy
+<b>Projects to start:</b> my-discoverable-service, eureka-server, zuul-proxy
 
 <b>URLs to Test:</b>
 * http://localhost:8085/routes - List current routes
-* http://localhost:8085/eureka-discoverable-service/greeting - Routing by id
+* http://localhost:8085/my-discoverable-service/greeting - Routing by id
 * http://localhost:8085/google/search?q=lorem+ipsum - Routing by URL
 * http://localhost:8085/hystrix.stream
 
