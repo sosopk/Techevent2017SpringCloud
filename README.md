@@ -21,7 +21,7 @@ Source code for Techevent 2017 session: Cloud Apps / Microservices made easy wit
 
 ## Circuit Breaker - Hystrix
 
-<b>Projects to start:</b> eureka-server, my-discoverable-service, hystrix-client, hystrix-dashboard
+<b>Projects to start:</b> eureka-server, my-discoverable-service, calling-client, hystrix-dashboard
 
 <b>URLs to Test:</b>
 * http://localhost:8083/get-greeting - Calls fallbackable service

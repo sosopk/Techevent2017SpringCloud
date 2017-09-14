@@ -17,32 +17,29 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableEurekaClient
 @EnableFeignClients
 @RestController
-public class HystrixClient {
+public class CallingClient {
 
 	@Autowired
-	private SomeInternalComponent someInternalComponent;
+	private HystrixProtectedClient hystrixProtectedClient;
 	
 	@RequestMapping("/get-greeting")
 	public String greeting() {
-		return someInternalComponent.getRealGreeting();
+		return hystrixProtectedClient.getRealGreeting();
 	}
-	
+
 	@RequestMapping("/get-greeting-30")
 	public String greeting30() {
 		ExecutorService executor = Executors.newSingleThreadExecutor();
 		for (int i=0;i<30;i++) {
 			executor.submit(() -> {
-				someInternalComponent.getRealGreeting();
+				hystrixProtectedClient.getRealGreeting();
 			});
-			
-			
-			
 		}
 		return "sent 30 requests";
 	}
 	
 	public static void main(String[] args) {
-		SpringApplication.run(HystrixClient.class, args);
+		SpringApplication.run(CallingClient.class, args);
 	}
 
 }

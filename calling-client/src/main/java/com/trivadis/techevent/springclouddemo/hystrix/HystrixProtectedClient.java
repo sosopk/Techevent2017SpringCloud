@@ -7,7 +7,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 
 @Service
-public class SomeInternalComponent {
+public class HystrixProtectedClient {
 
 	@Autowired
 	private MyDiscoverableService discoverableService;
